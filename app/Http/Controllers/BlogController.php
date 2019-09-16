@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use App\Post;
 class BlogController extends Controller
 {
+    protected $limit = 3;
     public function index()
     {
-        $posts = Post::all(); 
+        $posts = Post::with('author')->latest()->paginate($this->limit); 
         return view("blog.index", compact('posts'));
     }
 }
