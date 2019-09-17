@@ -9,14 +9,14 @@
                 @foreach($posts as $post)
                     <article class="post-item">
                         <div class="post-item-image">
-                            <a href="{{ route('blog.show', $post->id) }}">
+                            <a href="blog/{{$post->slug}}">
                             <img src="{{ $post->image_url }}" alt=""> 
                             </a>
                         </div>
                         <div class="post-item-body">
                             <div class="padding-10">
-                            <h2><a href="{{ route('blog.show', $post->id) }}">{{ $post->title }}</a></h2>
-                            <p>{{ $post->excerpt }}</p>
+                            <h2><a href="blog/{{$post->slug}}">{{ $post->title }}</a></h2>
+                            {!! $post->excerpt_html !!}
                             </div>
 
                             <div class="post-meta padding-10 clearfix">
@@ -29,7 +29,7 @@
                                     </ul>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="{{ route('blog.show', $post->id) }}">Continue Reading &raquo;</a>
+                                    <a href="blog/{{$post->slug}}">Continue Reading &raquo;</a>
                                 </div>
                             </div>
                         </div>

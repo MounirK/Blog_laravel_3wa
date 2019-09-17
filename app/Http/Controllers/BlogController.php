@@ -7,7 +7,7 @@ use App\Post;
 class BlogController extends Controller
 {
     protected $limit = 3;
-    public function index()
+    public function index() 
     {
         
         $posts = Post::with('author')
